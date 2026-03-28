@@ -1,0 +1,20 @@
+name: resnet50_cutmix
+model: resnet50 # resnet18, resnet34, resnet50, resnet101, resnet152, seresnextaa101d_32x8d.sw_in12k_ft_in1k_288, seresnext50_32x4d..
+pretrained: True
+
+# dataset
+data_dir: ../anlt/data
+
+# training hyperparameters
+lr: 1e-4
+epochs: 50
+label_smoothing: 0.1
+batch_size: 16
+head_type: 1_FC # 2_FC
+
+# augmentation
+aug: cutmix # mixup
+
+# pseudo-labeling
+use_pseudo: False
+pseudo_csv: null
