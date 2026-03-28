@@ -51,7 +51,7 @@ def attach_head(model, head):
 
 
 def build_model(model_name, head_type="1_FC", num_classes=100, pretrained=True):
-    if model_name in ["resnet18", "resnet50", "resnet101"]:
+    if model_name in ["resnet18","resnet34", "resnet50", "resnet101"]:
         # torchvision models
         model = getattr(torchvision.models, model_name)(
             weights="IMAGENET1K_V1" if pretrained else None

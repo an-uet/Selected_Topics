@@ -51,6 +51,30 @@ Usage
 ```
 
 2) Edit `codes/model_config.yaml` to point `data_dir` at your dataset and adjust hyperparameters (lr, epochs, batch_size, aug, etc.). Example config keys: `name`, `model`, `data_dir`, `lr`, `epochs`, `batch_size`, `aug`, `use_pseudo`, `pseudo_csv`.
+Configuration
+- `name`: The experiment name or run identifier
+- 
+- `model`: The architecture name to use. Examples: `resnet18`, `resnet34`, `resnet50`, `resnet101 `. You can also provide a `timm` model string if using timm models.
+
+- `pretrained`: `True`/`False` — if `True`, load ImageNet-pretrained weights where available.
+
+- `data_dir`: Path to the dataset root directory. The code expects subfolders `train/`, `val/`, and `test/` inside this directory
+
+- `lr`: Initial learning rate for the optimizer (example: `1e-4`).
+
+- `epochs`: Number of training epochs to run (example: `50`).
+
+- `label_smoothing`: Label smoothing factor used when constructing the classification loss (CrossEntropyLoss). A small value (e.g. `0.1`) softens hard one-hot targets.
+
+- `batch_size`: Batch size used by the DataLoader for both training and validation.
+
+- `head_type`: Classification head type to attach to the backbone. `1_FC` means a single fully-connected output layer; `2_FC` uses a small two-layer head 
+
+- `aug`: Augmentation strategy for training. Supported values in the script: `cutmix`, `mixup`, or leave blank/other for no special mixing augmentations.
+
+- `use_pseudo`: `True`/`False` to enable pseudo-labeling — if `True` the script will expect pseudo labels to be provided and use them during training according to the code's pseudo-label logic.
+
+- `pseudo_csv`: Path to a CSV file containing pseudo labels (or `null` if not using pseudo-labeling).
 
 3) Run training / evaluation from the `codes/` directory (the script loads `model_config.yaml` from the current working directory):
 
