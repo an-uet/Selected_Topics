@@ -86,24 +86,21 @@ def cutmix_data(x, y, alpha=1.0):
 
     return x, y_a, y_b, lam
 
-def plot_curves(history,save_path):
 
-    plt.figure(figsize=(12,5))
+def plot_curves(history, save_path):
+    plt.figure(figsize=(12, 5))
 
-    plt.subplot(1,2,1)
-    plt.plot(history["train_loss"],label="train")
-    plt.plot(history["val_loss"],label="val")
+    plt.subplot(1, 2, 1)
+    plt.plot(history["train_loss"], label="train")
+    plt.plot(history["val_loss"], label="val")
     plt.title("Loss")
     plt.legend()
 
-    plt.subplot(1,2,2)
-    plt.plot(history["train_acc"],label="train")
-    plt.plot(history["val_acc"],label="val")
+    plt.subplot(1, 2, 2)
+    plt.plot(history["train_acc"], label="train")
+    plt.plot(history["val_acc"], label="val")
     plt.title("Accuracy")
     plt.legend()
 
     plt.savefig(save_path)
     plt.close()
-
-
-

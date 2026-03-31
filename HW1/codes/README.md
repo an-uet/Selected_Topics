@@ -95,7 +95,7 @@ To view them during or after training:
 
 ```bash
 # from the repo root
-tensorboard --logdir codes/outputs/<name>/runs --bind_all
+tensorboard --logdir codes/outputs/<name>/runs
 ```
 
 Outputs
@@ -105,3 +105,7 @@ During training the script writes files to `outputs/`:
 - `outputs/<name>_curves.png` — training/validation loss & accuracy plot
 - `outputs/<name>_prediction.csv` — test set predictions
 - `outputs/<name>/prediction.csv.zip` — (zipped) predictions in a namespaced folder
+
+Performance Snapshot
+----------
+![Demo](anlt.png)

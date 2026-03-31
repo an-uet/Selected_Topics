@@ -51,7 +51,7 @@ def attach_head(model, head):
 
 
 def build_model(model_name, head_type="1_FC", num_classes=100, pretrained=True):
-    if model_name in ["resnet18","resnet34", "resnet50", "resnet101"]:
+    if model_name in ["resnet18", "resnet34", "resnet50", "resnet101"]:
         # torchvision models
         model = getattr(torchvision.models, model_name)(
             weights="IMAGENET1K_V1" if pretrained else None
@@ -192,19 +192,19 @@ def generate_prediction(model, test_dir, transform, save_path, device='cuda'):
     print("Saved:", save_path)
 
 
-
+# Generate both predicted labels and full probabilities for each class
 def generate_prediction_v2(
-    model,
-    test_dir,
-    transform,
-    save_path,          # file pred_label
-    prob_save_path,     # file probability
-    device='cuda'
+        model,
+        test_dir,
+        transform,
+        save_path,  # file pred_label
+        prob_save_path,  # file probability
+        device='cuda'
 ):
     model.eval()
 
-    results = []        # original output
-    prob_results = []   # full probabilities
+    results = []  # original output
+    prob_results = []  # full probabilities
     prob_list = []
 
     for img_name in sorted(os.listdir(test_dir)):
@@ -214,8 +214,8 @@ def generate_prediction_v2(
         img = transform(img).unsqueeze(0).to(device)
 
         with torch.no_grad():
-            out = model(img)                  # logits
-            probs = F.softmax(out, dim=1)     # probabilities
+            out = model(img)  # logits
+            probs = F.softmax(out, dim=1)  # probabilities
             pred = probs.argmax(1).item()
 
         name = os.path.splitext(img_name)[0]
@@ -285,7 +285,6 @@ def run(model_config, device='cuda'):
         shuffle=False,
         num_workers=4
     )
-
 
     print("\nRunning:", model_config["name"])
 
@@ -368,8 +367,8 @@ def run(model_config, device='cuda'):
     # Close the TensorBoard writer
     writer.close()
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     with open("model_config.yaml", "r") as f:
         model_configs = yaml.safe_load(f)
 
