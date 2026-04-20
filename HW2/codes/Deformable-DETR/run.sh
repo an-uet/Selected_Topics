@@ -1,0 +1,1 @@
+GPUS_PER_NODE=2 ./tools/run_dist_launch.sh 2 /mnt/HDD4/anlt/selected_topics/hw2/Deformable-DETR/configs/r50_deformable_detr_plus_iterative_bbox_refinement_plus_plus_two_stage.sh
