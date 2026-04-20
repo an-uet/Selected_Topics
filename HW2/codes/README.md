@@ -132,3 +132,11 @@ Example:
 Performance Snapshot
 -------
 ![Demo](demo.png)
+
+## Acknowledgements
+
+This project is based on code from the following public repositories:
+- DETR: https://github.com/facebookresearch/detr
+- Deformable DETR: https://github.com/fundamentalvision/Deformable-DETR
+
+We made minor modifications to adapt the code for our specific task.
