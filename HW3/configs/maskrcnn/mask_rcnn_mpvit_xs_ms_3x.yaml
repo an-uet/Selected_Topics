@@ -1,0 +1,14 @@
+_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: "checkpoints/r101_fpn_400.pkl"
+  MPVIT:
+    NAME: "mpvit_xsmall"
+    DROP_PATH: 0.1
+SOLVER:
+  IMS_PER_BATCH: 4
+  AMP:
+    ENABLED: true
+AUG:
+  DETR: True
+OUTPUT_DIR: "checkpoints/mpvit/mask_rcnn_mpvit_xs_ms_3x_r101_fpn_400"

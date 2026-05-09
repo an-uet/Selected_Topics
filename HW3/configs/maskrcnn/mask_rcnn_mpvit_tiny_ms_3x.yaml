@@ -1,0 +1,35 @@
+_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: "checkpoints/r101_fpn_200.pkl"
+  MPVIT:
+    NAME: "mpvit_tiny"
+    DROP_PATH: 0.1
+SOLVER:
+  IMS_PER_BATCH: 8
+  AMP:
+    ENABLED: true
+INPUT:
+  CROP:
+    ENABLED: false
+    SIZE:
+    - 0.9
+    - 0.9
+    TYPE: relative_range
+  FORMAT: BGR
+  MASK_FORMAT: polygon
+  MAX_SIZE_TEST: 1333
+  MAX_SIZE_TRAIN: 1333
+  MIN_SIZE_TEST: 800
+  MIN_SIZE_TRAIN:
+  - 640
+  - 672
+  - 704
+  - 736
+  - 768
+  - 800
+  MIN_SIZE_TRAIN_SAMPLING: choice
+  RANDOM_FLIP: horizontal
+AUG:
+  DETR: True
+OUTPUT_DIR: "checkpoints/mpvit/mask_rcnn_mpvit_tiny_ms_3x_r101_fpn_200"
