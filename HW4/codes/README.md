@@ -1,7 +1,7 @@
 # Selected Topics in Visual Recognition using Deep Learning — HW4
 
-**Student ID:** 315450018
-**Name:** Le Thi An
+**Student ID:** 314540018  
+**Name:** Le Thi An  
 
 ---
 
