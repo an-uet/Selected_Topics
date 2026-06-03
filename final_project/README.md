@@ -175,6 +175,11 @@ The inference config uses TTA (`use_tta: True`) and loads the checkpoint specifi
 ---
 
 ## Performance
+<p align="center">
+  <img src="qualitative_grid.png" width="900">
+</p>
+<p align="center"><strong>Figure 1:</strong> Qualitative comparison: LR 64×64 | Bicubic ×4 | WaveDAT ×4.</p>
+
 
 <p align="center">
   <img src="perform.png" alt="Performance Snapshot" width="600">
