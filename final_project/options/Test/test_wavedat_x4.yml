@@ -1,0 +1,38 @@
+name: WaveDAT
+model_type: DATModel
+scale: 4
+num_gpu: 1
+manual_seed: 10
+
+datasets:
+  test_1:
+    name: Single
+    type: SingleImageDataset
+    dataroot_lq: /mnt/HDD4/anlt/data/test/lr
+    io_backend:
+      type: disk
+    num_worker_per_gpu: 12
+    batch_size_per_gpu: 8
+
+network_g:
+  type: WaveDAT
+  upscale: 4
+  in_chans: 3
+  img_size: 64
+  img_range: 1.
+  split_size: [8, 8]
+  depth: [6, 6, 6, 6, 6, 6]
+  embed_dim: 180
+  num_heads: [6, 6, 6, 6, 6, 6]
+  expansion_factor: 4
+  resi_connection: '1conv'
+
+path:
+  pretrain_network_g: /mnt/HDD4/anlt/selected_topics/Selected_Topics/final_proj/experiments/WaveDAT/models/net_g_285000.pth
+  strict_load_g: True
+
+val:
+  save_img: True
+  suffix: 'x4'
+  use_chop: False
+  use_tta: True
