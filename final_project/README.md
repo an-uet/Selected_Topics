@@ -144,17 +144,17 @@ PYTHONPATH=$(pwd) python -m torch.distributed.launch \
 
 Key training settings (from `train_WaveDAT.yml`):
 
-| Setting | Value |
-|---|---|
-| Loss | Charbonnier (`eps=1e-9`) |
-| Optimizer | Adam |
-| Learning rate | 5e-5 (low; warm-started from converged MSW-DAT) |
-| LR schedule | MultiStepLR, milestones [100k, 200k, 250k], γ=0.5 |
-| Total iterations | 300,000 |
-| Batch size per GPU | 2 |
-| GT patch size | 256×256 |
-| Augmentation | Random hflip + rotation |
-| `strict_load_g` | False (WaveDFE/FGCA layers not in MSW-DAT checkpoint) |
+| Setting | Value                                                   |
+|---|---------------------------------------------------------|
+| Loss | Charbonnier (`eps=1e-9`)                                |
+| Optimizer | Adam                                                    |
+| Learning rate | 5e-5 (low; warm-started from converged MSW-DAT)         |
+| LR schedule | MultiStepLR, milestones [100k, 200k, 250k, 350k], γ=0.5 |
+| Total iterations | 500,000                                                 |
+| Batch size per GPU | 2                                                       |
+| GT patch size | 256×256                                                 |
+| Augmentation | Random hflip + rotation                                 |
+| `strict_load_g` | False (WaveDFE/FGCA layers not in MSW-DAT checkpoint)   |
 
 ---
 
@@ -182,12 +182,12 @@ The inference config uses TTA (`use_tta: True`) and loads the checkpoint specifi
 
 
 <p align="center">
-  <img src="perform.png" alt="Performance Snapshot" width="600">
+  <img src="performance.png" alt="Performance Snapshot" width="600">
 </p>
 <p align="center"><strong>Figure 2:</strong> PSNR on the Kaggle test leaderboard.</p>
 
-| Model | PSNR |
-|---|---|
-| Previous best | 33.800 |
-| **WaveDAT (ours)** | **34.364** |
+| Model | PSNR       |
+|---|------------|
+| Previous best | 33.800     |
+| **WaveDAT (ours)** | **34.374** |
 
