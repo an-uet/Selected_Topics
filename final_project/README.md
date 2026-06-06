@@ -189,5 +189,5 @@ The inference config uses TTA (`use_tta: True`) and loads the checkpoint specifi
 | Model | PSNR       |
 |---|------------|
 | Previous best | 33.800     |
-| **WaveDAT (ours)** | **34.374** |
+| **WaveDAT (ours)** | **34.380** |
 
