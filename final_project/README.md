@@ -182,7 +182,7 @@ The inference config uses TTA (`use_tta: True`) and loads the checkpoint specifi
 
 
 <p align="center">
-  <img src="performance.png" alt="Performance Snapshot" width="600">
+  <img src="performace.png" alt="Performance Snapshot" width="600">
 </p>
 <p align="center"><strong>Figure 2:</strong> PSNR on the Kaggle test leaderboard.</p>
 
